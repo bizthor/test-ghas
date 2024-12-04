@@ -1,2 +1,2 @@
 # test-ghas
-Repo para testear resultaos ghas
+Repo para testear resultados ghas
