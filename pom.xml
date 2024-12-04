@@ -1,167 +1,41 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-    <modelVersion>4.0.0</modelVersion>
-
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>net.codejava</groupId>
+  <artifactId>SpringBootHelloRest</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  
     <parent>
-        <groupId>com.gruposantander</groupId>
-        <artifactId>mb-parent-pom</artifactId>
-        <version>12.18.10</version>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.2.1.RELEASE</version>
     </parent>
-    <artifactId>ghas-testing</artifactId>
-    <version>1.0-SNAPSHOT</version>
-    <name>ghas-testing</name>
-    <description>pom file to to test java library in GHAS PoC</description>
 
     <dependencies>
-
-        <!--Dendency with -->
         <dependency>
-            <groupId>com.github.dozermapper</groupId>
-            <artifactId>dozer-core</artifactId>
-            <version>6.1.0</version>
-        </dependency>
-
-        <dependency>
-            <groupId>com.gruposantander</groupId>
-            <artifactId>ods-lib-utilities</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>com.gruposantander</groupId>
-            <artifactId>ods-lib-quickaction</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>com.gruposantander</groupId>
-            <artifactId>ods-lib-global-api-customer-segmentations</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>com.gruposantander</groupId>
-            <artifactId>ods-lib-global-api-contracts</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>com.gruposantander</groupId>
-            <artifactId>mb-api-sanitization</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>com.gruposantander</groupId>
-            <artifactId>mb-api-utilities</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>com.gruposantander</groupId>
-            <artifactId>mb-feign-sss-client</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>com.gruposantander</groupId>
-            <artifactId>mb-lib-api-starter</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>com.gruposantander</groupId>
-            <artifactId>mb-openapi-commons</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>jakarta.validation</groupId>
-            <artifactId>jakarta.validation-api</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>org.hibernate.validator</groupId>
-            <artifactId>hibernate-validator</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>com.gruposantander</groupId>
-            <artifactId>mb-api-test-utils</artifactId>
-            <scope>test</scope>
-        </dependency>
-
-        <dependency>
-            <groupId>org.instancio</groupId>
-            <artifactId>instancio-junit</artifactId>
-            <scope>test</scope>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
     </dependencies>
 
-    <dependencyManagement>
-        <dependencies>
-            <dependency>
-                <groupId>com.gruposantander</groupId>
-                <artifactId>ods-dcp-api-bom</artifactId>
-                <version>0.8.0</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>
-        </dependencies>
-    </dependencyManagement>
+    <!-- https://mvnrepository.com/artifact/com.github.dozermapper/dozer-core -->
+    <dependency>
+        <groupId>com.github.dozermapper</groupId>
+        <artifactId>dozer-core</artifactId>
+        <version>6.1.0</version>
+    </dependency>
+
+
+    <properties>
+        <java.version>1.8</java.version>
+    </properties>
+
 
     <build>
-        <resources>
-            <resource>
-                <filtering>true</filtering>
-                <directory>src/main/resources</directory>
-            </resource>
-        </resources>
         <plugins>
             <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <configuration>
-                    <source>8</source>
-                    <target>8</target>
-
-                </configuration>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
-
-            <plugin>
-                <groupId>org.jacoco</groupId>
-                <artifactId>jacoco-maven-plugin</artifactId>
-            </plugin>
-
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-dependency-plugin</artifactId>
-            </plugin>
-
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-javadoc-plugin</artifactId>
-                <configuration>
-                    <failOnError>false</failOnError>
-                </configuration>
-                <executions>
-                    <execution>
-                        <id>attach-javadocs</id>
-                        <goals>
-                            <goal>jar</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
-
         </plugins>
-    </build>
-
-    <distributionManagement>
-        <repository>
-            <id>ok-artifacts</id>
-            <url>https://nexus.ods.ok-cloud.net/repository/ok-artifacts/</url>
-        </repository>
-
-        <snapshotRepository>
-            <id>ok-artifacts-snapshot</id>
-            <url>https://nexus.ods.ok-cloud.net/repository/ok-artifacts-snapshot/</url>
-        </snapshotRepository>
-    </distributionManagement>
+    </build>  
 </project>
