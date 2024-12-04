@@ -58,5 +58,22 @@ public class HelloController {
 			return new ResponseEntity<Product>(HttpStatus.NOT_FOUND);
 		}
 	}
+
+	@GetMapping("/productsv2/{name}")
+	public ResponseEntity<Product> getProduct(@PathVariable String name) {
+		Product product = null;
+		
+		if (name.equals("pelota")) {
+			product = new Product(3, name, 299.89f);
+		}else{
+			System.out.println(name);
+		}
+		
+		if (product != null) {
+			return new ResponseEntity<Product>(product, HttpStatus.OK);
+		} else {		
+			return new ResponseEntity<Product>(HttpStatus.NOT_FOUND);
+		}
+	}
 	
 }
