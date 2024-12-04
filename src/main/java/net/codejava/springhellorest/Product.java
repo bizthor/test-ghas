@@ -1,4 +1,4 @@
-package net.codejava;
+package net.codejava.springhellorest;
 
 public class Product {
 	private int id;

@@ -1,4 +1,4 @@
-package net.codejava;
+package net.codejava.springhellorest;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
