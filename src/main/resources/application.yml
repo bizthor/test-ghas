@@ -1,0 +1,18 @@
+server:
+  port: 8080
+  servlet:
+    context-path: 
+
+logging:
+  level:
+    ROOT: INFO
+    org.springframework: INFO
+    org.springframework.web: INFO
+    net.codejava.springhellorest: DEBUG
+
+application:
+    security:
+      ignoredPaths: /swagger**,/webjars/springfox-swagger-ui/**,/swagger-resources/**,/v2/api-docs/**,/**
+      cors:
+        allowed:
+          domains: http://localhost:8080,http://localhost:8081

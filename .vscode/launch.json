@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-SpringhellorestApplication<springhellorest>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "net.codejava.springhellorest.SpringhellorestApplication",
+            "projectName": "springhellorest",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}
