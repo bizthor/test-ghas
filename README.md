@@ -1,2 +1,2 @@
 # test-ghas
-Repo para testear resultados ghas
+Microservicio spring para testear resultados ghas

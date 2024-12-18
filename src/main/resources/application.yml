@@ -16,3 +16,12 @@ application:
       cors:
         allowed:
           domains: http://localhost:8080,http://localhost:8081
+
+datasource:
+    url: jdbc:mysql://localhost:3306/auto
+    username: root
+    password: root
+    platform: mysql
+jpa:
+    hibernate:
+      ddl-auto: update
