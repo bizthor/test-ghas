@@ -13,12 +13,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import net.codejava.springhellorest.service.HellorestService;
+import net.codejava.springhellorest.service.HellorestServiceImpl;
+
 @RestController
 public class HelloController {
 
     private static final Logger logger = LogManager.getLogger(HelloController.class);
-
-
 
 	@RequestMapping("/hello")
 	public String hello() {
@@ -47,6 +48,15 @@ public class HelloController {
 	@PostMapping(value = "/update", consumes = {MediaType.APPLICATION_JSON_VALUE})
 	public void updateProduct(@RequestBody Product product) {
 		logger.debug("Hola getproduct", product.getId());
+
+		HellorestService service = new HellorestServiceImpl();
+		try {
+			service.addProductToDB(product);
+		} catch (Exception e) {
+			
+			e.printStackTrace();
+		}
+
 		System.out.println(product);
 	}
 	
